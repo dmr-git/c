@@ -1,14 +1,14 @@
 /*
- * Purpose: 
+ * Purpose:
  * Parameters:
  * Return value:
 */
 
-#include <stdio.h> 
+#include <stdio.h>
 
-// function declarations
+// function prototypes
 
 int main(int argc, const char * argv[]) {
 
-}    
-
+    return 0;
+} // main()

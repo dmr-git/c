@@ -1,8 +1,7 @@
 # C
 
 ## C Programming Playground
-This repo is an online repository of sample C programs. The main folder contains mostly
-code samples.
+This repo is an online repository of sample C programs.
 
 ## License
 This project is licensed under the GNU General Purpose License v3.0 - see the
