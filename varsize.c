@@ -10,6 +10,9 @@
 #include <limits.h>
 #include <float.h>
 
+#define COLOR_RED "\e[31m"
+#define COLOR_OFF "\e[m"
+
 // function prototypes
 void PrintSizes(void);
 void PrintRanges(void);
@@ -22,8 +25,9 @@ int main(int argc, const char * argv[]) {
 
 
 /*
- * Purpose: prints the number of bytes for each of C11's data types 
- * note - sizeof() is retuening an unsigned long
+ * Purpose: prints the number of bytes for each of C11's data types
+ * note - sizeof() is returning an unsigned long.  It is an operator and can
+ * work with a type or a variable passed to it in the ()
  * Parameters: none
  * Return value: 0
 */
@@ -31,16 +35,16 @@ void PrintSizes(void) {
     printf("Size of C data types\n\n");
     printf("Type                Bytes\n");
     printf("==================  =====\n");
-    printf("char                %5lu\n", sizeof(char));
+    printf(COLOR_RED "char                %5lu\n" COLOR_OFF, sizeof(char));
     printf("int8_t              %5lu\n", sizeof(int8_t));
     printf("unsigned char       %5lu\n", sizeof(unsigned char));
     printf("uint8_t             %5lu\n", sizeof(uint8_t));
-    printf("short               %5lu\n", sizeof(short));
+    printf(COLOR_RED "short               %5lu\n" COLOR_OFF, sizeof(short));
     printf("int16_t             %5lu\n", sizeof(int16_t));
     printf("uint16_t            %5lu\n", sizeof(uint16_t));
-    printf("int                 %5lu\n", sizeof(int));
+    printf(COLOR_RED "int                 %5lu\n" COLOR_OFF, sizeof(int));
     printf("unsigned            %5lu\n", sizeof(unsigned));
-    printf("long                %5lu\n", sizeof(long));
+    printf(COLOR_RED "long                %5lu\n" COLOR_OFF, sizeof(long));
     printf("unsigned long       %5lu\n", sizeof(unsigned long));
     printf("int32_t             %5lu\n", sizeof(int32_t));
     printf("uint32_t            %5lu\n", sizeof(uint32_t));
@@ -48,19 +52,22 @@ void PrintSizes(void) {
     printf("int64_t             %5lu\n", sizeof(int64_t));
     printf("unsigned long long  %5lu\n", sizeof(unsigned long long));
     printf("uint64_t            %5lu\n", sizeof(uint64_t));
+    printf("size_t              %5lu\n", sizeof(size_t));
+    printf("intmax_t            %5lu\n", sizeof(intmax_t));
     printf("\n");
-    printf("float               %5lu\n", sizeof(float));
-    printf("double              %5lu\n", sizeof(double));
-    printf("long double         %5lu\n", sizeof(long double));
+    printf(COLOR_RED "float               %5lu\n" COLOR_OFF, sizeof(float));
+    printf(COLOR_RED "double              %5lu\n" COLOR_OFF, sizeof(double));
+    printf(COLOR_RED "long double         %5lu\n" COLOR_OFF,
+                                           sizeof(long double));
     printf("\n");
-    printf("bool                %5lu\n", sizeof(bool));
+    printf(COLOR_RED "bool                %5lu\n" COLOR_OFF, sizeof(bool));
     printf("_Bool               %5lu\n", sizeof(_Bool));
     printf("\n");
     return;
 }
 
 /*
- * Purpose: prints the ranges for each of C11's data types 
+ * Purpose: prints the ranges for each of C11's data types
  * Parameters: none
  * Return value: 0
 */
@@ -80,4 +87,4 @@ void PrintRanges() {
     printf("double      %14.7g %14.7g\n", DBL_MIN, DBL_MAX);
     printf("long double %14.7Lg %14.7Lg\n", LDBL_MIN, LDBL_MAX);
     printf("\n");
-}    
+}
