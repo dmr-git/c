@@ -10,6 +10,7 @@ int main() {
                           // size of string to read (one less thant the length
                           // of the char aerray)
     printf("Hello, %s\n", name);
-    printf("Your name has %zu characters.\n", strlen(name));
+    printf("Your name has %zu character%s.\n", strlen(name),
+                      (strlen(name)>1 ? "s" : ""));
     return 0;
 } // main()

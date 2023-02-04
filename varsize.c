@@ -9,9 +9,7 @@
 #include <stdbool.h> // for bool
 #include <limits.h>
 #include <float.h>
-
-#define COLOR_RED "\e[31m"
-#define COLOR_OFF "\e[m"
+#include "drutils.h"
 
 // function prototypes
 void PrintSizes(void);
@@ -59,6 +57,9 @@ void PrintSizes(void) {
     printf(COLOR_RED "double              %5lu\n" COLOR_OFF, sizeof(double));
     printf(COLOR_RED "long double         %5lu\n" COLOR_OFF,
                                            sizeof(long double));
+    printf("\n");
+    printf(COLOR_RED "pointer             %5lu\n", sizeof(void*));
+    
     printf("\n");
     printf(COLOR_RED "bool                %5lu\n" COLOR_OFF, sizeof(bool));
     printf("_Bool               %5lu\n", sizeof(_Bool));
