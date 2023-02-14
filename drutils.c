@@ -54,6 +54,41 @@ float FahrenheitToCelsius(float tempF) {
     return ((tempF-32.0)*5.0/9.0);
 }
 
+/* Places a string with the day of week abbreviation associated with the 
+ * integer value of the day of week into the char array passed in.
+*/ 
+void IntToDayStr(int dayInt, char* dayStr) {
+    static char* days[] = { "sun", "mon", "tue", "wed", "thu", "fri", "sat" };
+    if ((dayInt >= 0) && (dayInt <=6)) {
+        strcpy(dayStr, days[dayInt]);
+    } else {
+        strcpy(dayStr, "???");
+    }    
+    return;
+}
+
+/* Return a int value 1 if year is leap year, else return int value 0
+ * A year that is divisible by 4 is a leap year.  However, years divisible by
+ * 100 are not leap years while those divisible by 400 are
+*/
+int IsLeapYear(int year) {
+    if (((year %4 == 0) && (year % 100 != 0)) || (year % 400 == 0))
+        return 1;
+    else
+        return 0;
+} 
+
+/* If digit character is passed, return an int of that character.
+ * Else, return -1
+*/
+int MakeInt(char digitChar) {
+    if ((digitChar >= '0') && (digitChar <= '9')) {
+        return (digitChar - '0');
+    } else {
+        return -1;
+    }    
+}
+
 // converts a string to lowercase
 void MakeLower(char * str) {
     do {
@@ -69,6 +104,7 @@ void MakeUpper(char * str) {
     } while (*++str);
 
 }
+
 /*
  * Takes a C string as input and makea a copy of that string in the heap.
  * The caller takes over ownership of the new string and is responsible
@@ -81,6 +117,7 @@ char* MakeStringInHeap(const char* source) {
     strcpy(newString, source);
     return(newString);
 }
+
 // set the working directory to the string passed in under the user's current
 // home directory.
 void SetWD(const char* path) {

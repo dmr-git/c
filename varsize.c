@@ -33,16 +33,16 @@ void PrintSizes(void) {
     printf("Size of C data types\n\n");
     printf("Type                Bytes\n");
     printf("==================  =====\n");
-    printf(COLOR_RED "char                %5lu\n" COLOR_OFF, sizeof(char));
+    printf(RED "char                %5lu\n" OFF, sizeof(char));
     printf("int8_t              %5lu\n", sizeof(int8_t));
     printf("unsigned char       %5lu\n", sizeof(unsigned char));
     printf("uint8_t             %5lu\n", sizeof(uint8_t));
-    printf(COLOR_RED "short               %5lu\n" COLOR_OFF, sizeof(short));
+    printf(RED "short               %5lu\n" OFF, sizeof(short));
     printf("int16_t             %5lu\n", sizeof(int16_t));
     printf("uint16_t            %5lu\n", sizeof(uint16_t));
-    printf(COLOR_RED "int                 %5lu\n" COLOR_OFF, sizeof(int));
+    printf(RED "int                 %5lu\n" OFF, sizeof(int));
     printf("unsigned            %5lu\n", sizeof(unsigned));
-    printf(COLOR_RED "long                %5lu\n" COLOR_OFF, sizeof(long));
+    printf(RED "long                %5lu\n" OFF, sizeof(long));
     printf("unsigned long       %5lu\n", sizeof(unsigned long));
     printf("int32_t             %5lu\n", sizeof(int32_t));
     printf("uint32_t            %5lu\n", sizeof(uint32_t));
@@ -53,15 +53,15 @@ void PrintSizes(void) {
     printf("size_t              %5lu\n", sizeof(size_t));
     printf("intmax_t            %5lu\n", sizeof(intmax_t));
     printf("\n");
-    printf(COLOR_RED "float               %5lu\n" COLOR_OFF, sizeof(float));
-    printf(COLOR_RED "double              %5lu\n" COLOR_OFF, sizeof(double));
-    printf(COLOR_RED "long double         %5lu\n" COLOR_OFF,
+    printf(RED "float               %5lu\n" OFF, sizeof(float));
+    printf(RED "double              %5lu\n" OFF, sizeof(double));
+    printf(RED "long double         %5lu\n" OFF,
                                            sizeof(long double));
     printf("\n");
-    printf(COLOR_RED "pointer             %5lu\n", sizeof(void*));
+    printf(RED "pointer             %5lu\n", sizeof(void*));
     
     printf("\n");
-    printf(COLOR_RED "bool                %5lu\n" COLOR_OFF, sizeof(bool));
+    printf(RED "bool                %5lu\n" OFF, sizeof(bool));
     printf("_Bool               %5lu\n", sizeof(_Bool));
     printf("\n");
     return;

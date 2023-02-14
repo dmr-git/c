@@ -1,66 +1,41 @@
 /*
- * Purpose: simulate rolling a pair of dice and print the results to the screen
- * Parameters: none
- * Return value: 0
+ * Purpose: Rolls a user defined number of dice and prints result to stdout
+ * Parameters: Command line: number of dice to throw
 */
 
 #include <stdio.h>
-#include <time.h>    // for clock()
-#include <stdlib.h>  // for srand() and rand()A
+#include "drutils.h"
+#include <stdlib.h>
+#include <time.h>
 
-#define NUMROLLS 4000
-#define DICEARRAYSIZE 13
+/* function prototypes */
 
-// function prototypes
-int RollOne( void );
-void PrintRolls( int rolls[] );
-void PrintX( int howMany );
-void test( void);
+int main(int argc, const char * argv[]) {
+    
+    // copy command line args to param[] on heap for edits
+    char* param[argc-1];
+    for (int i = 0; i < argc; i++) {
+        param[i] = MakeStringInHeap(argv[i]);
+    }
 
-int main (int argc, const char * argv[])
-{
-    int rolls[ DICEARRAYSIZE ], twoDice, i;  // rolls[2] stores number of 2's
-                                             // rolls[0] and rolls[1] go unused
-    
-    srand( clock() );                        // seed random()
-    
-    for  ( i = 0; i < DICEARRAYSIZE; i++ )
-        rolls[ i ] = 0;
-    
-    for ( i = 1; i <= NUMROLLS; i++ ) {
-        twoDice = RollOne() + RollOne();
-        ++ rolls[ twoDice ];
+    int numDice;
+    numDice = ((argc == 1) ? 1 : atoi(param[1]));
+
+    if (numDice == 0) {
+        printf("Usage: dice <integer>\n");
+        return 1;
     }
     
-    PrintRolls( rolls );
-    
+    int dice[numDice];
+
+    /* initialize random number generator */
+    srand( clock() );
+
+    /* roll the dice  and print the results */
+    for (int i = 0; i < numDice; i++) {
+        dice[i] = (rand() % 6) + 1;
+        printf("%d\n",dice[i]);
+    }
+     
     return 0;
-}
-
-
-int    RollOne( void )
-{
-    return ( rand() % 6 ) + 1;  // rand() returns number between 0 and mavvalue
-                                // of int
-}
-
-
-void PrintRolls( int rolls[] )
-{
-    int i;
-    
-    for ( i = 2; i <= 12; i++ ) {
-        printf( "%2d (%3d):  ", i, rolls[ i ] );
-        PrintX( rolls[ i ] / 10 );
-        putchar( '\n' );
-    }
-}
-
-
-void PrintX( int howMany )
-{
-    int    i;
-    
-    for ( i = 1; i <= howMany; i++ )
-        putchar( 'x' );
-}
+} 
