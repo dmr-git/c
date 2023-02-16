@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "drutils.h"
+#include <string.h>
 
 // function prototypes
 void SwapInt(int *ptrA, int *ptrB);
@@ -36,8 +37,7 @@ int main(int argc, const char * argv[]) {
     
     int c = 0;
     printf("Enter a number for c: ");
-    // pass the addresses into the function
-    scanf("%d", &c);
+    scanf("%d", &c);   // note passing in address
     printf("a+b+c = %d\n\n", a+b+c);
 
     // a string literal cannot be modified, but it can be replaced and it's
@@ -49,11 +49,37 @@ int main(int argc, const char * argv[]) {
     printf("fifth character = %c\n", *(str+4));
     puts(str);
     printf("\n");
-    char str2[11];
-    printf("Enter a string value\n");
-    scanf("%10s", str2);  //  %s disregards white space;  also, use a size
-                          //  delimeter here
-    puts(str2);
+
+    char string[256];
+    printf("Enter a string:\n");
+    fgetc(stdin);
+    fgets(string, 265, stdin);
+    string[strlen(string)-1] = '\0';
+    printf("Length of string = %lu\n", strlen(string));
+    printf("%s\n", string);
+
+
+    //  ask for number of ints, create an array of that size
+    //  without using pointers. Note we ask at run time for the size
+    //  of the array to build.
+    int numInts;
+    printf("\nHow many integers in your array?\n");
+    scanf("%d", &numInts);
+
+    int foo[numInts];
+
+    // ask for the values
+    for (int i = 0; i < numInts; i++) {
+        printf("Enter integer %d : ", i+1);
+        scanf("%d", &foo[i]);
+        printf("\n");
+    }    
+    // print the results to verify
+    printf("Numbers are:\n");
+    for (int i=0; i < numInts; i++) {
+        printf("%p\t", &foo[i]);
+        printf("%d\n", foo[i]);
+    }    
 
 
     return 0;

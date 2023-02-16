@@ -37,9 +37,8 @@ int main(int argc, const char * argv[]) {
 
     for (int i = 0; i <= strlen(msg); i++) {
         strncpy(dsptxt, (buffer+i), LCDWIDTH);
-       // printf("%s",dsptxt);
-       puts(dsptxt);
-        Delay(1);
+       printf("%s",dsptxt);
+       Delay(1); 
     }    
     free(buffer);
     buffer = NULL;
