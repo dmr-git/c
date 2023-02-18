@@ -37,16 +37,17 @@ enum eDays { SUN, MON, TUE, WED, THU, FRI, SAT };
 extern void   Bel(void);
 extern float  CelsiusToFahrenheit(float tempC);
 extern void   Delay(int numSeconds);
-extern void   FlowerBox(const char* str);
+extern void   FlowerBox(const char *str);
 extern float  FahrenheitToCelsius(float tempF);
-extern void   IntToDayStr(int dayInt, char* dayStr);
+extern void   IntToDayStr(int dayInt, char *dayStr);
 extern int    IsLeapYear(int year);
 extern int    MakeInt(char digitChar);
-extern void   MakeLower(char * str);
-extern void   MakeUpper(char * str);
-extern char*  MakeStringInHeap(const char* str);
-extern void   SetWD(const char* path);
+extern void   MakeLower(char *str);
+extern void   MakeUpper(char *str);
+extern char*  MakeStringInHeap(const char *str);
+extern void   SetWD(const char *path);
 extern void   SetWDHome(void);
+extern void   SortArray(int arr[], int length);
 extern void   SwapInt(int* a, int* b); 
 
 #endif

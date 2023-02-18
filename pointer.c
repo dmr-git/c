@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "drutils.h"
 #include <string.h>
+#include <stdlib.h>  // for malloc()
 
 // function prototypes
 void SwapInt(int *ptrA, int *ptrB);
@@ -80,6 +81,21 @@ int main(int argc, const char * argv[]) {
         printf("%p\t", &foo[i]);
         printf("%d\n", foo[i]);
     }    
+    
+    // declare a generic pointer to an int via malloc
+    int *ptr2;
+    ptr2 = (int*)malloc(sizeof(int));
+    ptr2 = NULL;
+
+    free(ptr2);
+
+    // declare and initialize in one step (array of 4 ints);
+    int *my_ptr = (int*)malloc(4 * sizeof(int));
+    my_ptr[0] = 4;
+    my_ptr[1] = 5;
+    my_ptr[2] = 7;
+    my_ptr[3] = 1;
+
 
 
     return 0;

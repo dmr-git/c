@@ -30,11 +30,9 @@ int main (int argc, const char * argv[])
     return 0;
 }
 
-
 void ReadLine( char *line )
 {
     int numCharsRead = 0;
-    
     int c;       //getchar() returns an int
     
     while ( (c = getchar()) != EOF
@@ -42,10 +40,8 @@ void ReadLine( char *line )
            && ++numCharsRead <= MAXLINELENGTH ) {
         *line++ = c;
     }
-    
     *line = '\0';
 }
-
 
 int	CountWords( char *line )
 {
@@ -65,7 +61,6 @@ int	CountWords( char *line )
                 inWord = true;
             }
         }
-        
         line++;
     }
     

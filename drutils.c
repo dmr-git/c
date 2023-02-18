@@ -9,6 +9,7 @@
 #include <string.h>
 #include <time.h>     // clock()
 #include <unistd.h>   // getuid(), chdir()
+#include <stdbool.h>
 
 #include "drutils.h"
 
@@ -143,6 +144,25 @@ void SetWDHome(void) {
     chdir(pw->pw_dir);
     return;
 }
+
+// return a sorted array.  uses optimized bubble sort
+void SortArray(int arr[], int length) {
+    bool swapped;
+    int i = 0;
+
+    do {
+        swapped = false;
+        for (int j = 0; j < (length -1 -i); j++) {
+            if (arr[j] > arr[j+1]) {
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+                swapped = true;
+            }        
+        }    
+        i++;
+    } while (swapped);    
+}    
 
 // swap two integers (pass in using &)
 void SwapInt(int* a, int* b) {
