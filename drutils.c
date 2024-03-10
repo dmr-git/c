@@ -106,18 +106,6 @@ void MakeUpper(char * str) {
 
 }
 
-/*
- * Takes a C string as input and makea a copy of that string in the heap.
- * The caller takes over ownership of the new string and is responsible
- * for freeing it.
-*/
-char* MakeStringInHeap(const char* source) {
-    char* newString;
-
-    newString = (char*) malloc(strlen(source)+1); // for '\0'
-    strcpy(newString, source);
-    return(newString);
-}
 
 // set the working directory to the string passed in under the user's current
 // home directory.

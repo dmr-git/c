@@ -44,7 +44,6 @@ extern int    IsLeapYear(int year);
 extern int    MakeInt(char digitChar);
 extern void   MakeLower(char *str);
 extern void   MakeUpper(char *str);
-extern char*  MakeStringInHeap(const char *str);
 extern void   SetWD(const char *path);
 extern void   SetWDHome(void);
 extern void   SortArray(int arr[], int length);

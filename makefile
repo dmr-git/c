@@ -4,11 +4,11 @@ CC=clang
 CFLAGS=-I.
 
 # define the executable file
-TARGET = sql_lite
+TARGET = cards
 
-OBJ= $(TARGET).o drutils.o sqlite3.o
+OBJ= $(TARGET).o 
 
-DEPS = drutils.h sqlite3.h
+DEPS = drutils.h
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
