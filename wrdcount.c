@@ -66,4 +66,3 @@ int	CountWords( char *line )
     
     return numWords;
 }
-
